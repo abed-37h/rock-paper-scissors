@@ -31,6 +31,8 @@ function playRound() {
         let computerSelection = getComputerChoice();
         console.clear();
 
+        if (!playerSelection) return null;
+
         result = playRoundHelper(playerSelection, computerSelection);
         console.log(result);
     } while (result.startsWith('Tie') || result.startsWith('Error'));
@@ -43,7 +45,10 @@ function game() {
     let computerScore = 0;
 
     while ((playerScore + computerScore) < 5) {
-        playRound() ? playerScore++ : computerScore++;
+        let playerWin = playRound();
+        if (playerWin == null) continue;
+
+        playerWin ? playerScore++ : computerScore++;
 
         console.log('Your Score: ' + playerScore + '\t' + ' Computer\'s Score: ' + computerScore);
     }
