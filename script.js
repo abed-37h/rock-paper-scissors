@@ -41,6 +41,8 @@ function playRound() {
 }
 
 function game() {
+    console.clear();
+    
     let playerScore = 0;
     let computerScore = 0;
 
@@ -56,6 +58,10 @@ function game() {
 
     if (playerWin !== null)
         console.log((playerScore > computerScore) ? 'Hooray! You Win :D' : 'Good luck next time :(');
+
+    if (confirm('Do you want to restart the game?'))
+        game()
 }
 
-game()
+if (confirm('Are you ready?\n*Open the console to get ready*'))
+    game()
