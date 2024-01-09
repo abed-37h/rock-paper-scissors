@@ -60,8 +60,8 @@ function game() {
         console.log((playerScore > computerScore) ? 'Hooray! You Win :D' : 'Good luck next time :(');
 
     if (confirm('Do you want to restart the game?'))
-        game()
+        setTimeout(game, 2000);
 }
 
 if (confirm('Are you ready?\n*Open the console to get ready*'))
-    game()
+    setTimeout(game, 2000);
