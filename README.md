@@ -13,4 +13,4 @@ his/her score. If the two players choose the same choice it's a tie and the \
 round is re-played. Finally, the the player with highest score after 5 rounds \
 is the WINNER!
 
-**NOTE**: In this app you'll be playing against a bot.
+**NOTE**: In this app you'll be playing against a bot. [Try it here](https://abed-37h.github.io/rock-paper-scissors/)
