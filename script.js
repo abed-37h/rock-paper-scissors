@@ -27,7 +27,7 @@ function playRoundHelper(playerSelection, computerSelection) {
 function playRound() {
     let result;
     do {
-        let playerSelection = prompt('Type your choice:\n["rock", "paper", "scissors"]');
+        let playerSelection = prompt('Type your choice: ["rock", "paper", "scissors"]\n*Cancel or Esc to end the game*');
         let computerSelection = getComputerChoice();
         console.clear();
 
@@ -44,16 +44,18 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    let playerWin = null;
     while ((playerScore + computerScore) < 5) {
-        let playerWin = playRound();
-        if (playerWin == null) continue;
+        playerWin = playRound();
+        if (playerWin == null) break;
 
         playerWin ? playerScore++ : computerScore++;
 
         console.log('Your Score: ' + playerScore + '\t' + ' Computer\'s Score: ' + computerScore);
     }
 
-    console.log((playerScore > computerScore) ? 'Hooray! You Win :D' : 'Good luck next time :(');
+    if (playerWin !== null)
+        console.log((playerScore > computerScore) ? 'Hooray! You Win :D' : 'Good luck next time :(');
 }
 
 game()
