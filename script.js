@@ -27,7 +27,7 @@ function game() {
     
     const choices = document.querySelectorAll('.choice button');
     choices.forEach((choice) => {
-        choice.addEventListener('click', (event) => {
+        choice.addEventListener('click', () => {
             const computerSelection = getComputerChoice();
             const playerSelection = choice.id;
             const result = playRound(playerSelection, computerSelection);
@@ -42,7 +42,40 @@ function game() {
             resultText.textContent = result;
             playerScoreRef.textContent = playerScore;
             computerScoreRef.textContent = computerScore;
+
+            if (playerScore === 5 || computerScore === 5) {
+                choices.forEach((c) => { c.disabled = true; });
+
+                const display = document.querySelector('#display');
+                const finalResult = document.createElement('p');
+
+                finalResult.id = 'final-result';
+                finalResult.textContent = (playerScore > computerScore) 
+                    ? 'Hooray! You Win ' + String.fromCodePoint(0x1F604)
+                    : 'Good luck next time ' + String.fromCodePoint(0x1F61E);
+
+                display.appendChild(finalResult);
+            }
         });
+    });
+    
+    const reset = document.querySelector('#reset');
+    reset.addEventListener('click', () => {
+        result = '';
+        playerScore = 0;
+        computerScore = 0;
+        
+        const resultText = document.querySelector('#result');
+        const playerScoreRef = document.querySelector('#player-score');
+        const computerScoreRef = document.querySelector('#computer-score');
+        const finalResult = document.querySelector('#final-result');
+        
+        resultText.textContent = result;
+        playerScoreRef.textContent = playerScore;
+        computerScoreRef.textContent = computerScore;
+        
+        choices.forEach((c) => { c.disabled = false; });
+        if (finalResult) finalResult.remove();
     });
 }
 
