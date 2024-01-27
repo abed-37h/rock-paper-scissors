@@ -28,8 +28,6 @@ function game() {
     const choices = document.querySelectorAll('.choice button');
     choices.forEach((choice) => {
         choice.addEventListener('click', (event) => {
-            console.clear();
-    
             const computerSelection = getComputerChoice();
             const playerSelection = choice.id;
             const result = playRound(playerSelection, computerSelection);
@@ -37,9 +35,13 @@ function game() {
             if (result.startsWith('You Win')) playerScore++;
             else if (result.startsWith('You Lose')) computerScore++;
             
-            console.log(result);
-            console.log(`Your score: ${playerScore}`);
-            console.log(`Computer score: ${computerScore}`);
+            const resultText = document.querySelector('#result');
+            const playerScoreRef = document.querySelector('#player-score');
+            const computerScoreRef = document.querySelector('#computer-score');
+
+            resultText.textContent = result;
+            playerScoreRef.textContent = playerScore;
+            computerScoreRef.textContent = computerScore;
         });
     });
 }
