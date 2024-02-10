@@ -61,7 +61,7 @@ function game() {
     
     const reset = document.querySelector('#reset');
     reset.addEventListener('click', () => {
-        result = '';
+        result = 'Choose your weapon to start...';
         playerScore = 0;
         computerScore = 0;
         

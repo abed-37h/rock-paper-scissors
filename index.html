@@ -8,30 +8,30 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container">
-        <ul id="choices">
-            <li class="choice"><button id="rock">Rock &#9994;</button></li>
-            <li class="choice"><button id="paper">Paper &#9995;</button></li>
-            <li class="choice"><button id="scissors">Scissors &#9996;</button></li>
-        </ul>
-
-        <div id="display">
-            <p id="result"></p>
-            
-            <div id="scores">
-                <span class="score">
-                    <b class="label">Your Score: </b>
-                    <span id="player-score">0</span>
-                </span>
+    <div class="content">
+        <div class="container">
+            <ul id="choices">
+                <li class="choice"><button id="rock">&#9994;</button></li>
+                <li class="choice"><button id="paper">&#9995;</button></li>
+                <li class="choice"><button id="scissors">&#9996;</button></li>
+            </ul>
+            <div id="display">
+                <div id="scores">
+                    <span class="score">
+                        <b class="label">YOU</b>
+                        <span id="player-score">0</span>
+                    </span>
+                    
+                    <span class="score">
+                        <b class="lebel">COMPUTER</b>
+                        <span id="computer-score">0</span>
+                    </span>
+                </div>
                 
-                <span class="score">
-                    <b class="lebel">Computer&apos;s Score: </b>
-                    <span id="computer-score">0</span>
-                </span>
+                <p id="result">Choose your weapon to start...</p>
             </div>
+            <button id="reset">Reset &#x27F3;</button>
         </div>
-
-        <button id="reset">Reset &#x27F3;</button>
     </div>
 </body>
 </html>
